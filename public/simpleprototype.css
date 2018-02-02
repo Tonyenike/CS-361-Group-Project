@@ -96,7 +96,9 @@ h1 {
 	float: left;
 }
 
-
+td{
+    display: block;
+}
 
 
 
