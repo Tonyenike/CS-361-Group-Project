@@ -1,0 +1,101 @@
+
+html {
+
+padding: 0;
+margin: 0;
+}
+
+body {
+
+padding: 0;
+margin: 0;
+}
+
+#canvas {
+	width: 85%;
+	height: 89vh;
+	margin: 0;
+	background-color: lightblue;
+	float: left;
+	display: inline;
+	position: relative;
+}
+
+h1 {
+	margin: 0;
+	font-family: "verdana";
+	font-size: 5vmin;
+	width: 96%;
+	height: 7vh;
+	padding-right: 2vw;
+	padding-left: 2vw;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	background-color: black;
+	color: white;
+}
+
+.viewbutton {
+	font-size: 1vmin;
+	position: absolute;
+	border: none;
+	width: 10%;
+	height: 0;
+	padding-bottom: 10%;
+	background-color: orange;		
+
+}
+
+#up {
+	top: 3%;
+	left: 45%;
+}
+#left {
+	left: 3%;
+	top: 45%;
+}
+#right {
+	right: 3%;
+	top: 45%;
+}
+#down {
+	right: 45%;
+	top: 87%;
+}
+
+#modelcube {
+
+	background-color: red;
+	width: 70%;
+	padding-bottom: 70%;
+	position: absolute;
+	top: 15%;
+	left: 30%;
+
+}
+
+#viewtoggle {
+
+	background-color: lightgrey;
+	position: absolute;
+	padding-bottom: 25%;
+	height: 0;
+	width: 25%;
+	right: 5%;
+	bottom: 5%;
+
+}
+
+#menu {
+	width: 15%;
+	height: 89vh;
+	margin: 0;
+	background-color: lightpink;
+	display: inline;
+	float: left;
+}
+
+
+
+
+
