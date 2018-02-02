@@ -36,7 +36,7 @@ h1 {
 }
 
 .viewbutton {
-	font-size: 1vmin;
+	font-size: 3vmin;
 	position: absolute;
 	border: none;
 	width: 10%;
@@ -71,6 +71,7 @@ h1 {
 	position: absolute;
 	top: 15%;
 	left: 30%;
+	height: 0;
 
 }
 
