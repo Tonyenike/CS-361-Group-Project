@@ -1,0 +1,26 @@
+{
+  "name": "cs-361-group-project",
+  "version": "1.0.0",
+  "description": "The Memo",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tonyenike/CS-361-Group-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tonyenike/CS-361-Group-Project/issues"
+  },
+  "homepage": "https://github.com/Tonyenike/CS-361-Group-Project#readme"
+}
