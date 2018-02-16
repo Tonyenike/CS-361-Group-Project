@@ -1,0 +1,16 @@
+#bar {
+ background-color: lightgrey;
+ margin: 0;
+ font-size: 5vmin;
+ font-family: Verdana;
+ padding: 3vmin;
+
+}
+
+a {
+
+    margin: 0;
+    display: block;
+    padding: 1vmin;
+    font-size: 2vmin;
+}

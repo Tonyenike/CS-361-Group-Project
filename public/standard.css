@@ -36,12 +36,25 @@ h1 {
 	color: white;
 }
 
-
 #menu {
+
 	width: 15%;
-	height: 89vh;
+	height: 88vh;
 	margin: 0;
-	background-color: lightpink;
+	background-color: lightsteelblue;
 	display: inline;
 	float: left;
+	font-size: 4vmin;
+	font-family: "verdana";
+	text-align: center;
+	padding-top: 1vh;
+}
+
+.menu-button {
+	display: block;
+	margin: 15%;
+	width: 70%;
+	font-size: 1.3vmin;
+	padding-top: 3%;
+	padding-bottom: 3%;
 }

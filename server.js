@@ -21,7 +21,7 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var handlebars = require('express-handlebars');
-var port = 3000; // When running the server, use type "localhost:[port-number]" in your address bar to see the webpage.
+var port = 3000; // When running the server, type "localhost:[port-number]" in your address bar to see the webpage.
 
 
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
