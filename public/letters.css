@@ -1,0 +1,51 @@
+#text-input {
+    margin: 5%;
+    width: 60%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 4vmin;
+}
+
+#input-box{
+
+    margin: 5vmin;
+    background-color: #e0c503a6;
+    width: 80%;
+    padding-top:2.5%;
+    padding-bottom: 2.5%;
+    border-radius: 5vmin;
+}
+
+#word-gen{
+    text-align: center;
+    border-radius: 1vmin;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 25%;
+    border-style: none;
+    background-color: #4da5c7;
+    font-family: serif;
+    font-size: 1.2vw;
+   
+
+   
+}
+
+#word-gen:hover {
+   background-color: #50a6ff;
+   padding-top:2%;
+   padding-bottom:2%;
+}
+
+
+
+#content-display {
+    width: 90%;
+    margin-left: 5%;
+    background-color: beige;
+    padding-bottom: 5vh;
+    border-radius: 1vmin;
+    text-align: center;
+    padding-top: 1vh;
+
+}

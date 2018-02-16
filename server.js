@@ -4,6 +4,7 @@
  *  Required packages:	express
  *  			express-handlebars
  *  			handlebars
+ *  			socket.io
  *
  *  type "npm install [package-name]" to install the package
  *
@@ -23,6 +24,18 @@ var server = require('http').Server(app);
 var handlebars = require('express-handlebars');
 var port = 3000; // When running the server, type "localhost:[port-number]" in your address bar to see the webpage.
 
+/*
+ *  Create socket connection to the client side JS. 
+ *  Begin listening on port [port-number].
+ */ 
+
+var io = require('socket.io').listen(app.listen(port, function() {
+    console.log('== Server is listening on port', port);
+}));
+
+/*
+* Set up handlebars
+*/
 
 app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
@@ -71,12 +84,3 @@ app.use(express.static('public'));
 app.get('*', function(req, res) {
 	res.status(404).render('404.handlebars');
 });
-
-/*
-*  Set the server to listen on port [port-number].
-*/  
-
-app.listen(port, function () {
-  console.log("== Server is listening on port", port);
-});
-
