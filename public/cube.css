@@ -79,17 +79,6 @@ h1 {
 
 }
 
-#cubedisplay {
-
-	position: absolute;
-	padding-bottom: 50%;
-	height: 0;
-	width: 60%;
-	top: 3vmin;
-	left: 15vmin;
-
-}
-
 #viewtoggle {
 
 	background-color: lightgrey;
@@ -115,19 +104,125 @@ h1 {
 	float: left;
 }
 
-.square {
+td{
+    display: block;
+}
 
-	background-color: lightgreen;
-	width: 31.33%;
-	margin: 1%;
-	padding-bottom: 31.33%;
-	float: left;
-	display: inline;
+
+#cubedisplay {
+
+	position: absolute;
+	padding-bottom: 50%;
+	height: 0;
+	width: 60%;
+	top: 3vmin;
+	left: 15vmin;
+	background-color: lightgrey;
 
 }
 
-td{
-    display: block;
+
+
+.squared  {
+	background-color: white;
+	position: absolute;
+	width: 31.33%;
+	margin: 1%;
+	padding-bottom: 31.33%;
+}
+
+.face {
+	width: 25%;
+	margin: 0%;
+	padding-bottom: 25%;
+	background-color: black;
+	position: absolute;
+
+}
+
+#face-back {
+	left: 75%;
+	top: 35%;
+
+}
+
+
+#face-front {
+	left: 25%;
+	top: 35%;
+
+}
+
+#face-left {
+	left: 0%;
+	top: 35%;
+}
+
+#face-right {
+	top: 35%;
+	left: 50%;
+}
+
+#face-bottom {
+	top: 65%;
+	left: 25%;
+}
+
+#face-top {
+	top: 5%;
+	left: 25%;
+}
+
+
+
+
+
+
+
+
+#tl {
+	left: .33%;
+	top: .33%;
+}
+
+#tr {
+	right: .33%;
+	top: .33%;
+}
+
+#tm {
+	top: .33%;
+ 	left: 33.33%;
+}
+
+#ml {
+	left: .33%;
+	top: 33.33%;
+}
+
+#mm {
+	left: 33.33%;
+	top: 33.33%;
+}
+
+#mr {
+	right: .33%;
+	top: 33.33%;
+}
+
+#bl {
+	left: .33%;
+	bottom: .33%;
+}
+
+#bm {
+	left: 33.33%;
+	bottom: .33%;
+}
+
+#br {
+	right: .33%;
+	bottom: .33%;
 }
 
 

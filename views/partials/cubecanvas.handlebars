@@ -1,6 +1,23 @@
 	<div id = "canvas">
 		<div id = "cubedisplay">
-			<img src = "demorube.png" id = "cubed" alt = "A Rubik's Cube display">
+			<div class = "face" id = "face-left">
+				{{>squares}}
+			</div>
+			<div class = "face" id = "face-right">
+				{{>squares}}
+			</div>
+			<div class = "face" id = "face-top">
+				{{>squares}}
+			</div>
+			<div class = "face" id = "face-bottom">
+				{{>squares}}
+			</div>
+			<div class = "face" id = "face-front">
+				{{>squares}}
+			</div>
+			<div class = "face" id = "face-back">
+				{{>squares}}
+			</div>
 		</div>
 		<div id = "viewtoggle">
 			<button class = "viewbutton" id = "up">U</button>
@@ -9,17 +26,7 @@
 			<button class = "viewbutton" id = "down">D</button>
 
 			<div id = "modelcube">
-				<div class = "square"></div>
-				<div class = "square"></div>
-				<div class = "square"></div>
-
-				<div class = "square"></div>
-				<div class = "square"></div>
-				<div class = "square"></div>
-
-				<div class = "square"></div>
-				<div class = "square"></div>
-				<div class = "square"></div>
+				{{>squares}}
 			</div>
 
 		</div>

@@ -6,6 +6,8 @@
  *  			handlebars
  *  			socket.io
  *
+ *  Our built-in 'package': engine.js. This is where our back end code will be.
+ *
  *  type "npm install [package-name]" to install the package
  *
  *  If you pull the entire repository from github, then all the packages should
@@ -22,6 +24,8 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var handlebars = require('express-handlebars');
+var cubeEngine = require('./engine.js'); // This lets us use the functions that we have built on the back end.
+
 var port = 3000; // When running the server, type "localhost:[port-number]" in your address bar to see the webpage.
 
 /*
