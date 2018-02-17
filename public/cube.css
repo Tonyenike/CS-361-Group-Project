@@ -226,4 +226,13 @@ td{
 }
 
 
+#scrambler {
 
+	position: absolute;
+	bottom: 5%;
+	right: 5%;
+	width: 20%;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	font-size: 1.2vw;
+}

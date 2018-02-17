@@ -11,7 +11,9 @@ var socket = io.connect('http://localhost:3000');
  *   socket functionalities will work before I proceed.
  */
 
-// For demonstration purposes: 
+// For demonstration purposes, when the scrambler button is pressed: 
+
+document.getElementById("scrambler").addEventListener("click", function(){
 
 // Set the top right square of the front face to red.
 setcolor("red", "front", "tr");
@@ -36,6 +38,7 @@ var face = {
 
 setface(face, "left");
 
+});
 
 
 
