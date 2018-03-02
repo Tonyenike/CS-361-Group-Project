@@ -48,5 +48,14 @@ function unit_test2()
 
 }
 
+console.log("");
+console.log("=== Beginning Unit Testing ===");
+console.log("------------------------------");
 
 unit_test1();
+unit_test2();
+
+console.log("");
+console.log("=== End of Testing ===");
+console.log("----------------------");
+console.log("");
