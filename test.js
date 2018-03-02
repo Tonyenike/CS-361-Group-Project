@@ -8,11 +8,11 @@
  *
  */
 
-var cubeEngine = require('./engine.js'); // This lets us use the functions that we have built on the back end.
+var cubeEngine = require('./engine.js'); // This lets us use the functions that we have built on the back-end.
 
 
-function unit_test1(){
-
+function unit_test1()
+{
 	var cube = new cubeEngine(); //The cube variable is our cube object.
 
 	console.log("");	
@@ -31,7 +31,8 @@ function unit_test1(){
 	console.log("=== Bottom square is now: ", midbotcol);
 	console.log("=== Top square is now: ", midtopcol);
 
-	if(midbotcol === midtopcol){
+	if(midbotcol === midtopcol)
+	{
 		console.log("=== Test success. Colors match.");
 	}
 	else
@@ -40,7 +41,8 @@ function unit_test1(){
 }
 
 
-function unit_test2(){
+function unit_test2()
+{
 
 	// Add more tests here as we need them
 

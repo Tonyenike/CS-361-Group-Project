@@ -6,7 +6,7 @@
  *  			handlebars
  *  			socket.io
  *
- *  Our built-in 'package': engine.js. This is where our back end code will be.
+ *  Our built-in 'package': engine.js. This is where our back-end code will be.
  *
  *  type "npm install [package-name]" to install the package
  *
