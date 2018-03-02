@@ -327,4 +327,9 @@ module.exports = class Cube{
 			this.rotateCube("down");
 		}		
 	}
+	scramble(){
+
+		// This needs to be done.
+
+	}
 }
