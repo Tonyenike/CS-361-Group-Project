@@ -12,6 +12,9 @@ var cubeEngine = require('./engine.js'); // This lets us use the functions that 
 
 /*
  *  Styling points for unit testing!
+ *  Only works on *NIX operating systems though.
+ *  Run this on the ENGR server for best results.
+ *
  */
 
 Reset = "\x1b[0m"
