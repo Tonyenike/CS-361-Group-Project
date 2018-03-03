@@ -120,6 +120,17 @@ class Face{
 
 
 	/*
+ 	*   Sets the color of a square on the face specified
+ 	*   by its location.
+ 	*/ 
+	setColor(loc, color){
+		/*
+ 		*  This needs to be done still
+		*/
+	}
+
+
+	/*
  	* We can spin the face either clockwise or
  	* counterclockwise
  	*/
@@ -331,5 +342,18 @@ module.exports = class Cube{
 
 		// This needs to be done.
 
+	}
+	solution(){
+		// Should return a string of characters
+		// that specify the solution to the cube in the
+		// current state that it is in.
+		//
+		// Still needs to be done.
+	}
+	reset(){
+		// Resets the Rubik's Cube to its
+		// default position: solved
+		//
+		// Still needs to be done.
 	}
 }
