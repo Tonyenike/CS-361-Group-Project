@@ -1,0 +1,32 @@
+INSTRUCTIONS FOR USE OF THIS SOFTWARE
+
+Make sure that you are on the ENGR server. If you are working directly on an ENGR machine, things will work more smoothly
+than if you are using a mobaXterm or something. Since our webpage isn't public (we don't have a domain), it requires you
+to open a webpage directly on the ENGR machine in order to see our server content.
+
+
+If you want to execute everything [IF YOU ARE LOOKING TO GRADE OUR PROJECT, DO THIS]
+Type:
+	chmod +x openweb
+	./openweb 
+	You can type
+		./openweb back
+	to start the server process in the background if you want to do other things in the terminal.
+	Type Ctrl C to kill the server process (this only works if it is in the foreground)
+	Type fg to move the server process into the foreground. (As long as nothing else is working in the background)
+
+
+To test our back-end code, type: node test.js    
+To run our server, type: node server.js  
+  
+If you want to open up the browser on the ENGR machine, type google-chrome [page-name].
+
+
+SMALL ISSUES YOU MIGHT RUN INTO
+
+If you get an ERR:EADDRINUSE error, then you already have an instance of the server on that port.
+Type Ctrl C to kill a server running on the foreground.
+Type fg to move a process running on the background into the foreground.
+
+Type ps to see the PID of the process (the CMD will be called node)
+Type kill -9 [PID of node] to kill the process.

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+google-chrome http://localhost:3000 &
+
+if [ "$1" != "back" ]; then
+	node server.js
+else
+	node server.js &
+fi
