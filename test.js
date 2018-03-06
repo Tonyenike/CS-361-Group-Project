@@ -120,12 +120,45 @@ function unit_test2()
 
 function unit_test3()
 {
+	//This test will check to see that the getFace function is working properly
+	//And that default colors are correct. 
+	var cube = new cubeEngine(); //The cube variable is our cube object.
+	
+	console.log("");	
+	console.log(FgCyan + "=== Beginning Unit test 3 ===" + Reset);
+	console.log("-----------------------------");
 
-	/*
- 	*
- 	*  Add more testing here!
- 	*
- 	*/
+	var backface = cube.getFace("back");
+	var leftface = cube.getFace("left");
+
+	var col = backface.getSquare("mm").getColor();
+	var othercol = leftface.getSquare("mm").getColor();
+
+	console.log("=== color of back face:", col);
+	console.log("=== color of left face:", othercol);
+
+	console.log("=== default coloring scheme is:");
+	console.log("=== front : red");
+	console.log("=== back  : orange");
+	console.log("=== left  : green");
+	console.log("=== right : blue");
+	console.log("=== top   : white");
+	console.log("=== bottom: yellow");
+
+
+
+
+	//Assertions
+	if(othercol !== col && 
+	   col === "orange" && 
+	   othercol === "green")
+	{
+		stat = FgGreen + "SUCCESS" + Reset;
+	}
+	else
+		stat = FgRed + "FAILURE" + Reset;
+	console.log(FgYellow + "=== TEST STATUS:" + Reset, stat);
+	console.log("");
 
 }
 

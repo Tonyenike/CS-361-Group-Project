@@ -15,7 +15,7 @@
  *  npm on whatever computer that you are running on. If you run the code
  *  on the ENGR server, the npm tool is already installed.
  *
- *  Type: "npm start" to run the server.
+ *  Type: "npm start" to run the server, or node.js
  * 
  */
 
