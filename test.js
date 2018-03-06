@@ -146,8 +146,6 @@ function unit_test3()
 	console.log("=== bottom: yellow");
 
 
-
-
 	//Assertions
 	if(othercol !== col && 
 	   col === "orange" && 
