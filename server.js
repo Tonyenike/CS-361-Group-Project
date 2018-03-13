@@ -120,6 +120,11 @@ app.get('/letters', function(req, res) {
     	res.status(200).render('letters.handlebars', context);
 });
 
+app.get('/scrambler', function(req, res) {
+	context = {style: "./scrambler.css"};
+    	res.status(200).render('scrambler.handlebars', context);
+});
+
 /*
 *   Use the public folder for styling assets and javascript.
 */
