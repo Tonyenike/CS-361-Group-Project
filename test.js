@@ -160,6 +160,16 @@ function unit_test3()
 
 }
 
+function unit_test4(){
+
+
+
+
+
+
+
+}
+
 console.log("");
 console.log(FgCyan + "=== Beginning Unit Testing ===" + Reset);
 console.log("------------------------------");
@@ -167,6 +177,7 @@ console.log("------------------------------");
 unit_test1();
 unit_test2();
 unit_test3();
+unit_test4();
 
 console.log("");
 console.log(FgCyan + "=== End of Testing ===" + Reset);

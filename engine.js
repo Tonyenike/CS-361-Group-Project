@@ -11,14 +11,14 @@
  *
  * 	1. Add validation features to the cube on the back-end (make sure we don't get any weird colors)
  * 	2. Add scramble feature to the cube
- *	3. Add solver feature to the cube
+ *	3. Add solver feature to the cube - CURRENTLY BEING COMPLETED
  *	4. It might be more convenient to divide this file into multiple parts ~ 
  *	   should we do that? (as of Mar. 1, there are 330 lines).
  *	5. iOS support?
  *
  */
 
-
+var adj = require('./adjacent.js');
 
 // Write your functions and object declarations here.
 
@@ -341,19 +341,238 @@ module.exports = class Cube{
 	scramble(){
 
 		// This needs to be done.
+		// Talk to Keenan about specifics
 
 	}
+
+
 	solution(){
 		// Should return a string of characters
 		// that specify the solution to the cube in the
 		// current state that it is in.
 		//
 		// Still needs to be done.
+        
+        // First: We need to figure out the lettering scheme.
+        // This will always be determined by the default position.
+        //
+        // I suppose, if we have time, we could add a feature to let
+        // the user choose the lettering scheme by changing which color
+        // is at the top/front etc.
+        
+        var ltop    = "yellow";
+        var lright  = "green";
+        var lleft   = "blue";
+        var lback   = "orange";
+        var lbottom = "white";
+        var lfront  = "red";
+        
+        // Solve the edges of the cube.
+        return this.solveedges(ltop, lright, lleft, lback, lbottom, lfront);
+        // Still need someone to solve corners here.
+    }
+
+
+    /*
+    *  This grandiose function will output a string of letters,
+    *  which corresponds to the solution of exclusively 
+    *  the edges of the cube, if memorized blindfolded
+    *  using the exact letter scheme provided below and starting buffer piece.
+    *
+    */
+    solveedges(ltop, lright, lleft, lback, lbottom, lfront){
+
+        var letteringscheme = [
+
+                [ltop,     lback, "A"],
+                [ltop,    lright, "B"],
+                [ltop,    lfront, "C"],
+                [ltop,     lleft, "D"],
+
+                [lleft,     ltop, "E"],
+                [lleft,   lfront, "F"],
+                [lleft,  lbottom, "G"],
+                [lleft,    lback, "H"],
+
+                [lfront,    ltop, "I"],
+                [lfront,  lright, "J"],
+                [lfront, lbottom, "K"],
+                [lfront,   lleft, "L"],
+
+                [lright,    ltop, "M"],
+                [lright,   lback, "N"],
+                [lright, lbottom, "O"],
+                [lright,  lfront, "P"],
+
+                [lback,     ltop, "Q"],
+                [lback,    lleft, "R"],
+                [lback,  lbottom, "S"],
+                [lback,   lright, "T"],
+
+                [lbottom, lfront, "U"],
+                [lbottom, lright, "V"],
+                [lbottom,  lback, "W"],
+                [lbottom,  lleft, "X"]
+
+        ];
+
+        // Then, the user *could* specify which piece they want to be their
+        // buffer. I am not sure how we go about doing this.
+
+        /*
+        * NOTE THAT THE HELPER FUNCTIONS FINDEDGE AND ADJ 
+        * ARE HERE TO HELP YOU IMPLEMENT THIS FUNCTION!
+        */
+
+
+        // Let us assume for now, that we are using the following lettering scheme:
+        // https://teachkidsengineering.com/solve-rubiks-cube-blindfolded/
+        // and that the default buffer piece is B-M, the yellow-green edge.
+
+        var bufferedge1 = "yellow";
+        var bufferedge2 = "green";
+
+        var restoreDown = 0;
+        var restoreLeft = 0;
+
+        for(var i = 0; i < 4 && this.getFace("top").getSquare("mm").getColor() !== bufferedge1; i++){
+            this.rotateCube("up");
+            restoreDown++;
+        }
+        for(var i = 0; i < 4 && this.getFace("top").getSquare("mm").getColor() !== bufferedge1; i++){
+            this.rotateCube("right");
+            restoreLeft++;
+        }
+
+        for(var i = 0; i < 4 && this.getFace("right").getSquare("mm").getColor() !== bufferedge2; i++){
+            this.rotateCube("right");
+            restoreLeft++;
+        }
+
+        var solutionstring = "";
+        var buffertemp1 = bufferedge1;
+        var buffertemp2 = bufferedge2;
+
+        var squarespots = [
+            "tm",
+            "mr",
+            "bm",
+            "ml"
+        ];
+
+        var facespots = [
+            "top",
+            "left",
+            "front",
+            "right",
+            "back",
+            "bottom"
+        ];
+        
+        var facespot;
+        var squarespot;
+
+        var doy
+
+        // 24 is the maximum number of moves to solve the edges, if they were all out of place AND flipped.
+        // (12 edges * 2 moves per edge = 24 moves)
+        for(var i = 0; i < 24; i++){
+            // If we have the correct square in the buffer slot,
+            // check to see if we have other squares that need to be shot first.
+           if((bufferedge1 === buffertemp1 && bufferedge2 === buffertemp2) || 
+              (bufferedge1 === buffertemp2 && bufferedge2 === buffertemp1)){
+                // In the second scenario of the if statement, we actually KNOW that the cube
+                // isn't be solved, but we need to find another edge to shoot to. Our solvededges()
+                // function will return to us a new edge for us to shoot to.
+                var content = this.solvededges();
+                // The edges are solved. Return satisfied.
+                if(content.status === "Good")
+                    return solutionstring;
+                // The edges are not solved. Shoot the buffer to someplace else.
+                else{
+                    buffertemp1 = this.getFace(content.facespot).getSquare(content.squarespot).getColor();
+                    var doi = adj(content.facespot, content.squarespot);
+                    buffertemp2 = this.getFace(doi.facespot).getSquare(doi.squarespot).getColor();
+                    for(var j = 0; j < 24; j++){
+                        if(content.facespot === facespots[j % 4] &&
+                           content.squarespot === squarespots[(j - (j % 4)) / 4])
+                        solutionstring = solutionstring + letteringscheme[j][2];
+                    }
+                }         
+            }
+            doy = true;
+            // Shoot the square in the buffer slot to its correct spot.
+            for(var j = 0; j < 24 && doy; j++){
+                // Look for the place in the cube to shoot to. Once we find it, add its letter component to the solution string.
+                if(buffertemp1 === letteringscheme[j][0] && buffertemp2 === letteringscheme[j][1]){
+                    solutionstring = solutionstring + letteringscheme[j][2]; // Add the letter to the solution string
+                    squarespot = squarespots[j % 4];
+                    facespot = facespots[(j - (j % 4)) / 4];
+                    doy = false;
+                }
+            }
+            var context = adj(facespot, squarespot); // Find the adjacent square of the edge.
+            buffertemp1 = this.getFace(facespot).getSquare(squarespot).getColor(); // Load color 1 into our buffertemp
+            buffertemp2 = this.getFace(context.facespot).getSquare(context.squarespot).getColor(); // Load color 2 into our buffertemp
+        }
+        for(var i = 0; i < restoreDown; i++){
+            this.rotateCube("down");
+        }
+        for(var i = 0; i < restoreLeft; i++){
+            this.rotateCube("left");
+        }
+        return solutionstring;
 	}
+
+
+	// Resets the Rubik's Cube to its
+	// default position: solved
 	reset(){
-		// Resets the Rubik's Cube to its
-		// default position: solved
-		//
-		// Still needs to be done.
+		this.front  = new Face("red");
+		this.back   = new Face("orange");
+		this.right  = new Face("blue");		
+		this.left   = new Face("green");
+		this.bottom = new Face("yellow");
+		this.top    = new Face("white");
 	}
+    solvededges(){
+
+        var squarespots = [
+            "bm",
+            "ml",
+            "tm",
+            "mr"
+        ];
+
+        var facespots = [
+            "left",
+            "front",
+            "back",
+            "bottom",
+            "right",
+            "top"
+        ];
+
+        var stat = "Good";        
+
+        for(var i = 0; i < 6; i++){
+            var col = this.getFace(facespots[i]).getSquare("mm").getColor();
+            for(var j = 0; j < 4; j++){
+                if(this.getFace(facespots[i]).getSquare(squarespots[j]).getColor() !== col){
+                    stat = "Bad";
+                    var wrapper = {
+                        status: stat,
+                        facespot: facespots[i],
+                        squarespot: squarespots[j]
+                    };
+                    return wrapper;
+                }   
+            }
+        }
+        var wrapper = {
+            status: stat,
+        };
+        return wrapper;
+    }
 }
+

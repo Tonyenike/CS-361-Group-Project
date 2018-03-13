@@ -66,6 +66,21 @@ h1 {
 	right: 45%;
 	top: 87%;
 }
+#clock{
+    top: 3%;
+    left: 15%;
+}
+#counterclock{
+    top: 3%;
+    right: 15%;
+}
+
+#clock img{
+    width: 60%;
+}
+#counterclock img{
+    width: 60%;
+}
 
 #modelcube {
 

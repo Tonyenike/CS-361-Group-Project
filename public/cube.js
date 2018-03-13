@@ -4,7 +4,6 @@
 
 var socket = io.connect('http://localhost:3000');
 
-
 /*
  *   Client side functionality here.
  *   We need to make some agreements and hash out some things on how
@@ -14,33 +13,78 @@ var socket = io.connect('http://localhost:3000');
 // For demonstration purposes, when the scrambler button is pressed: 
 
 document.getElementById("scrambler").addEventListener("click", function(){
+// This is our psuedo-scrambler at the moment until we get a real scrambler in our engine. It serves
+// as a testing ground.
+
+var orangesq = {
+    color: "orange"
+}
+
+var greensq = {
+    color: "green"
+}
+
+var redsq = {
+    color: "red"
+}
+
+
+var yellowsq = {
+    color: "yellow"
+}
 
 // Set the top right square of the front face to red.
-setcolor("red", "front", "tr");
+setcolor(redsq, "front", "tr");
 // Set the whole back face to green.
-setfacecolor("green", "back");
+setfacecolor(greensq, "back");
 
 // Set the left face to have a row of orange squares on the top, four yellow squares in the bottom-right,
 // and the last two squares to be red.
 var face = {
-	tr: "orange",
-	tm: "orange",
-	tl: "orange",
+	tr: orangesq,
+	tm: orangesq,
+	tl: orangesq,
 
-	mr: "yellow",
-	mm: "yellow",
-	ml: "red",
+	mr: yellowsq,
+	mm: yellowsq,
+	ml: redsq,
 
-	br: "yellow",
-	bm: "yellow",
-	bl: "red",
+	br: yellowsq,
+	bm: yellowsq,
+	bl: redsq
 }
 
 setface(face, "left");
 
 });
 
+document.getElementById("up").addEventListener("click", function(){emitDir("up");});
+document.getElementById("down").addEventListener("click", function(){emitDir("down");});
+document.getElementById("left").addEventListener("click", function(){emitDir("left");});
+document.getElementById("right").addEventListener("click", function(){emitDir("right");});
+document.getElementById("clock").addEventListener("click", function(){emitDir("clockwise");});
+document.getElementById("counterclock").addEventListener("click", function(){emitDir("counterclockwise");});
 
+socket.emit("newCube"); // We need a new cube for our page.
+
+function emitDir(dir){
+    var content = {
+        direction: dir
+    };
+    socket.emit("rotateCube", content);
+
+}
+
+socket.on("updateCube", function(content){
+    var cube = content;
+    console.log(cube);
+    setface(cube.front, "front");
+    setface(cube.back, "back");
+    setface(cube.left, "left");
+    setface(cube.right, "right");
+    setface(cube.top, "top");
+    setface(cube.bottom, "bottom");
+})
 
 /*
  *  FUNCTION: setcolor
@@ -58,7 +102,7 @@ setface(face, "left");
  */
 
 function setcolor(color, face, square){
-
+    var sq = color;
 	var faceo
 
 	if(face === "front"){
@@ -93,10 +137,10 @@ function setcolor(color, face, square){
 	var yo = "#";
 	yo += square;
 
-	document.getElementById(faceo).querySelector(yo).style.backgroundColor = color;
+	document.getElementById(faceo).querySelector(yo).style.backgroundColor = sq.color;
 
 	if(face === "front"){
-		document.getElementById("modelcube").querySelector(yo).style.backgroundColor = color;
+		document.getElementById("modelcube").querySelector(yo).style.backgroundColor = sq.color;
 	}
 
 	return;
