@@ -22,16 +22,16 @@
 
 #user-input{
 
-    margin: 5vmin;
+    margin: 1vmin;
     background-color: #e0c503a6;
     width: 80%;
     padding-top:2.5%;
     padding-bottom: 2.5%;
-    border-radius: 2vmin;
+    border-radius: 1vmin;
 }
 
 #text-input {
-    margin: 5%;
+    margin: 1%;
     width: 60%;
     padding-top: 1%;
     padding-bottom: 1%;
