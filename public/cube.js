@@ -2,7 +2,7 @@
  *   Establish connection to the server.
  */
 
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://localhost:50100');
 
 /*
  *   Client side functionality here.
@@ -10,7 +10,7 @@ var socket = io.connect('http://localhost:3000');
  *   socket functionalities will work before I proceed.
  */
 
-// For demonstration purposes, when the scrambler button is pressed: 
+// For demonstration purposes, when the scrambler button is pressed:
 
 document.getElementById("scrambler").addEventListener("click", function(){
 // This is our psuedo-scrambler at the moment until we get a real scrambler in our engine. It serves
@@ -116,7 +116,7 @@ function setcolor(color, face, square){
 	else if(face === "right"){
 		faceo = "face-right";
 	}
-	
+
 	else if(face === "left"){
 		faceo = "face-left";
 	}
@@ -124,7 +124,7 @@ function setcolor(color, face, square){
 	else if(face === "bottom"){
 		faceo = "face-bottom";
 	}
-	
+
 	else if(face === "top"){
 		faceo = "face-top";
 	}
@@ -160,7 +160,7 @@ function setfacecolor(color, face){
 	setcolor(color, face, "tr");
 	setcolor(color, face, "tm");
 	setcolor(color, face, "tl");
-	
+
 	setcolor(color, face, "mr");
 	setcolor(color, face, "mm");
 	setcolor(color, face, "ml");

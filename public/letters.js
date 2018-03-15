@@ -2,7 +2,7 @@
  *   Establish connection to the server.
  */
 
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://localhost:50100');
 
 
 /*
@@ -1179,5 +1179,8 @@ if (string == "xv")
 document.getElementById("content-display").innerHTML = "Xavier";
 if (string == "xw")
 document.getElementById("content-display").innerHTML = "Wolverine";
+
+else
+document.getElementById("content-display").innerHTML = "Error...";
 
 }

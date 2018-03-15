@@ -1,0 +1,50 @@
+#scramble-display {
+    width: 90%;
+    margin-top: 5%;
+    margin-left: 5%;
+    background-color: beige;
+    padding-bottom: 5vh;
+    border-radius: 1vmin;
+    text-align: center;
+    padding-top: 1vh;
+}
+
+#solution-display {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    background-color: beige;
+    padding-top:5vh;
+    border-radius: 1vmin;
+    text-align: center;
+    padding-top: 1vh;
+}
+
+#user-input{
+
+    margin: 5vmin;
+    background-color: #e0c503a6;
+    width: 80%;
+    padding-top:2.5%;
+    padding-bottom: 2.5%;
+    border-radius: 2vmin;
+}
+
+#text-input {
+    margin: 5%;
+    width: 60%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 4vmin;
+}
+
+#result-display {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+    background-color: beige;
+    padding-top:5vh;
+    border-radius: 1vmin;
+    text-align: center;
+    padding-top: 1vh;
+}
