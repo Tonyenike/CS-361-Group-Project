@@ -144,6 +144,14 @@ td{
 	width: 31.33%;
 	margin: 1%;
 	padding-bottom: 31.33%;
+    text-align: center;
+}
+
+.squarel {
+    position: absolute;
+    width: 90%;
+    padding-bottom: 90%;
+    font-size: 2vw;
 }
 
 .face {

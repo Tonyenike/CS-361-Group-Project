@@ -67,6 +67,7 @@ io.on('connection', function (socket) {
     */
     socket.on('newCube', function() {
         cube.reset();
+        console.log(cube);
         emitCube();
     })
 

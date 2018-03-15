@@ -217,6 +217,26 @@ class Face{
 			this.ml.setColor(temp4);
 			this.mr.setColor(temp1);
 			this.bm.setColor(temp3);
+			
+            temp1 = this.tm.getLetter();
+			temp2 = this.ml.getLetter();
+			temp3 = this.mr.getLetter();
+			temp4 = this.bm.getLetter();
+
+			this.tm.setLetter(temp2);
+			this.ml.setLetter(temp4);
+			this.mr.setLetter(temp1);
+			this.bm.setLetter(temp3);
+            
+            temp1 = this.tr.getLetter();
+			temp2 = this.tl.getLetter();
+			temp3 = this.br.getLetter();
+			temp4 = this.bl.getLetter();
+
+			this.tr.setLetter(temp2);
+			this.tl.setLetter(temp4);
+			this.br.setLetter(temp1);
+			this.bl.setLetter(temp3);
 		}
 		else if(direction === "counterclockwise")
 		{
@@ -226,7 +246,7 @@ class Face{
 			var temp3 = this.br.getColor();
 			var temp4 = this.bl.getColor();
 
-			this.tr.setColor(temp3);
+            this.tr.setColor(temp3);
 			this.tl.setColor(temp1);
 			this.br.setColor(temp4);
 			this.bl.setColor(temp2);
@@ -240,6 +260,26 @@ class Face{
 			this.ml.setColor(temp1);
 			this.mr.setColor(temp4);
 			this.bm.setColor(temp2);
+			
+			temp1 = this.tm.getLetter();
+			temp2 = this.ml.getLetter();
+			temp3 = this.mr.getLetter();
+			temp4 = this.bm.getLetter();
+
+			this.tm.setLetter(temp3);
+			this.ml.setLetter(temp1);
+			this.mr.setLetter(temp4);
+			this.bm.setLetter(temp2);
+			
+            temp1 = this.tr.getLetter();
+			temp2 = this.tl.getLetter();
+			temp3 = this.br.getLetter();
+			temp4 = this.bl.getLetter();
+
+			this.tr.setLetter(temp3);
+			this.tl.setLetter(temp1);
+			this.br.setLetter(temp4);
+			this.bl.setLetter(temp2);
 		}
 	}
 }
@@ -356,7 +396,6 @@ module.exports = class Cube{
 		ss.setLetter("X");
 		this.bottom.setSquare("bl", ss);
 		this.bottom.setSquare("ml", ss);
-
 
 	}
 
@@ -694,10 +733,113 @@ module.exports = class Cube{
 	reset(){
 		this.front  = new Face("red");
 		this.back   = new Face("orange");
-		this.right  = new Face("blue");		
-		this.left   = new Face("green");
-		this.bottom = new Face("yellow");
-		this.top    = new Face("white");
+		this.right  = new Face("green");		
+		this.left   = new Face("blue");
+		this.bottom = new Face("white");
+		this.top    = new Face("yellow");
+		var ss = new Square("yellow");
+		ss.setLetter("A");
+		this.top.setSquare("tl", ss);
+		this.top.setSquare("tm", ss);
+
+		ss.setLetter("B");
+		this.top.setSquare("tr", ss);
+		this.top.setSquare("mr", ss);
+
+		ss.setLetter("C");
+		this.top.setSquare("br", ss);
+		this.top.setSquare("bm", ss);
+
+		ss.setLetter("D");
+		this.top.setSquare("bl", ss);
+		this.top.setSquare("ml", ss);
+
+		ss = new Square("red");
+		ss.setLetter("E");
+		this.front.setSquare("tl", ss);
+		this.front.setSquare("tm", ss);
+
+		ss.setLetter("F");
+		this.front.setSquare("tr", ss);
+		this.front.setSquare("mr", ss);
+
+		ss.setLetter("G");
+		this.front.setSquare("br", ss);
+		this.front.setSquare("bm", ss);
+
+		ss.setLetter("H");
+		this.front.setSquare("bl", ss);
+		this.front.setSquare("ml", ss);
+
+		ss = new Square("blue");
+		ss.setLetter("I");
+		this.left.setSquare("tl", ss);
+		this.left.setSquare("tm", ss);
+        console.log(this.left.tm);
+
+		ss.setLetter("J");
+		this.left.setSquare("tr", ss);
+		this.left.setSquare("mr", ss);
+
+		ss.setLetter("K");
+		this.left.setSquare("br", ss);
+		this.left.setSquare("bm", ss);
+
+		ss.setLetter("L");
+		this.left.setSquare("bl", ss);
+		this.left.setSquare("ml", ss);
+
+		ss = new Square("green");
+		ss.setLetter("M");
+		this.right.setSquare("tl", ss);
+		this.right.setSquare("tm", ss);
+
+		ss.setLetter("N");
+		this.right.setSquare("tr", ss);
+		this.right.setSquare("mr", ss);
+
+		ss.setLetter("O");
+		this.right.setSquare("br", ss);
+		this.right.setSquare("bm", ss);
+
+		ss.setLetter("P");
+		this.right.setSquare("bl", ss);
+		this.right.setSquare("ml", ss);
+
+		ss = new Square("orange");
+		ss.setLetter("Q");
+		this.back.setSquare("tl", ss);
+		this.back.setSquare("tm", ss);
+
+		ss.setLetter("R");
+		this.back.setSquare("tr", ss);
+		this.back.setSquare("mr", ss);
+
+		ss.setLetter("S");
+		this.back.setSquare("br", ss);
+		this.back.setSquare("bm", ss);
+
+		ss.setLetter("T");
+		this.back.setSquare("bl", ss);
+		this.back.setSquare("ml", ss);
+
+		ss = new Square("white");
+		ss.setLetter("U");
+		this.bottom.setSquare("tl", ss);
+		this.bottom.setSquare("tm", ss);
+
+		ss.setLetter("V");
+		this.bottom.setSquare("tr", ss);
+		this.bottom.setSquare("mr", ss);
+
+		ss.setLetter("W");
+		this.bottom.setSquare("br", ss);
+		this.bottom.setSquare("bm", ss);
+
+		ss.setLetter("X");
+		this.bottom.setSquare("bl", ss);
+		this.bottom.setSquare("ml", ss);
+
 	}
     solvededges(){
 
