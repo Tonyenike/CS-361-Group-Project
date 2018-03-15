@@ -138,6 +138,7 @@ function setcolor(color, face, square){
 	yo += square;
 
 	document.getElementById(faceo).querySelector(yo).style.backgroundColor = sq.color;
+	document.getElementById(faceo).querySelector(yo).style.innerHTML = sq.letter;
 
 	if(face === "front"){
 		document.getElementById("modelcube").querySelector(yo).style.backgroundColor = sq.color;

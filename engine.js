@@ -14,7 +14,6 @@
  *	3. Add solver feature to the cube - CURRENTLY BEING COMPLETED
  *	4. It might be more convenient to divide this file into multiple parts ~ 
  *	   should we do that? (as of Mar. 1, there are 330 lines).
- *	5. iOS support?
  *
  */
 
