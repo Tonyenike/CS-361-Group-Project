@@ -1,6 +1,6 @@
 /*
  *  Server code.
- *  
+ *
  *  Required packages:	express
  *  			express-handlebars
  *  			handlebars
@@ -16,7 +16,7 @@
  *  on the ENGR server, the npm tool is already installed.
  *
  *  Type: "npm start" to run the server, or node.js
- * 
+ *
  */
 
 
@@ -33,9 +33,9 @@ var c = new cubeEngine();
 console.log(c.solution());
 
 /*
- *  Create socket connection to the client side JS. 
+ *  Create socket connection to the client side JS.
  *  Begin listening on port [port-number].
- */ 
+ */
 
 var io = require('socket.io').listen(app.listen(port, function() {
     console.log('== Server is listening on port', port);
@@ -60,7 +60,7 @@ app.set('view engine', 'handlebars');
  */
 io.on('connection', function (socket) {
     var cube = new cubeEngine(); //The cube variable is our cube object.
-    
+
     /*
     * The client has requested a new cube.
     * Emit a new cube to the client.
@@ -69,7 +69,7 @@ io.on('connection', function (socket) {
         cube.reset();
         emitCube();
     })
-    
+
     /*
     *  The client has requested to rotate the cube. Use back-end
     *  code to update the cube, and then emit the updated cube
@@ -118,6 +118,16 @@ app.get('/cube', function(req, res) {
 app.get('/letters', function(req, res) {
 	context = {style: "./letters.css"};
     	res.status(200).render('letters.handlebars', context);
+});
+
+app.get('/scramble', function(req, res) {
+	context = {style: "./scramble.css"};
+    	res.status(200).render('scramble.handlebars', context);
+});
+
+app.get('/scrambler', function(req, res) {
+	context = {style: "./scrambler.css"};
+    	res.status(200).render('scrambler.handlebars', context);
 });
 
 /*
