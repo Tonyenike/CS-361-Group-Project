@@ -10,7 +10,7 @@ Compiled to Javascript using GWT.
 
  */
 
- var socket = io.connect('http://localhost:50100');
+ var socket = io.connect('http://localhost:54500');
 
 
 "use strict";
