@@ -774,7 +774,6 @@ module.exports = class Cube{
 		ss.setLetter("I");
 		this.left.setSquare("tl", ss);
 		this.left.setSquare("tm", ss);
-        console.log(this.left.tm);
 
 		ss.setLetter("J");
 		this.left.setSquare("tr", ss);
