@@ -10,6 +10,9 @@ Compiled to Javascript using GWT.
 
  */
 
+ var socket = io.connect('http://localhost:50100');
+
+
 "use strict";
 if (typeof scramblers === "undefined") {
   var scramblers = {};

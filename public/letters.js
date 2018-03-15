@@ -1180,7 +1180,7 @@ document.getElementById("content-display").innerHTML = "Xavier";
 if (string == "xw")
 document.getElementById("content-display").innerHTML = "Wolverine";
 
-else
-document.getElementById("content-display").innerHTML = "Error...";
+// else
+// document.getElementById("content-display").innerHTML = "Error...";
 
 }
