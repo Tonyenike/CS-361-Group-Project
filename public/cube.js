@@ -15,7 +15,7 @@ var socket = io.connect('http://localhost:54500');
 document.getElementById("scrambler").addEventListener("click", function(){
 // This is our psuedo-scrambler at the moment until we get a real scrambler in our engine. It serves
 // as a testing ground.
-
+/*
 var orangesq = {
     color: "orange"
 }
@@ -55,7 +55,9 @@ var face = {
 }
 
 setface(face, "left");
+*/
 
+alert("This button is depreciated");
 });
 
 document.getElementById("up").addEventListener("click", function(){emitDir("up");});
@@ -138,7 +140,7 @@ function setcolor(color, face, square){
 	yo += square;
 
 	document.getElementById(faceo).querySelector(yo).style.backgroundColor = sq.color;
-	document.getElementById(faceo).querySelector(yo).style.innerHTML = sq.letter;
+	document.getElementById(faceo).querySelector(yo).style.innertext = sq.letter;
 
 	if(face === "front"){
 		document.getElementById("modelcube").querySelector(yo).style.backgroundColor = sq.color;

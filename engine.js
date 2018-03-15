@@ -14,6 +14,7 @@
  *	3. Add solver feature to the cube - CURRENTLY BEING COMPLETED
  *	4. It might be more convenient to divide this file into multiple parts ~ 
  *	   should we do that? (as of Mar. 1, there are 330 lines).
+ *	5. iOS support?
  *
  */
 
@@ -27,6 +28,7 @@ class Square{
 	// 	"red", "blue", "white", "green", "yellow", and "orange"
 	constructor(color){
 		this.setColor(color);
+		this.letter = "";
 	}
 
 	getColor(){
@@ -35,6 +37,12 @@ class Square{
 	
 	setColor(color){
 		this.color = color;
+	}
+	getLetter(){
+		return this.letter;
+	}
+	setLetter(letter){
+		this.letter = letter;
 	}
 }
 
@@ -71,16 +79,25 @@ class Face{
 	*/
 	setFace(face){
 		this.tr.setColor(face.getSquare("tr").getColor());
+		this.tr.setLetter(face.getSquare("tr").getLetter());
 		this.tm.setColor(face.getSquare("tm").getColor());
+		this.tm.setLetter(face.getSquare("tm").getLetter());
 		this.tl.setColor(face.getSquare("tl").getColor());
+		this.tl.setLetter(face.getSquare("tl").getLetter());
 		
 		this.mr.setColor(face.getSquare("mr").getColor());
+		this.mr.setLetter(face.getSquare("mr").getLetter());
 		this.mm.setColor(face.getSquare("mm").getColor());
+		this.mm.setLetter(face.getSquare("mm").getLetter());
 		this.ml.setColor(face.getSquare("ml").getColor());
+		this.ml.setLetter(face.getSquare("ml").getLetter());
 		
 		this.br.setColor(face.getSquare("br").getColor());
+		this.br.setLetter(face.getSquare("br").getLetter());
 		this.bm.setColor(face.getSquare("bm").getColor());
+		this.bm.setLetter(face.getSquare("bm").getLetter());
 		this.bl.setColor(face.getSquare("bl").getColor());
+		this.bl.setLetter(face.getSquare("bl").getLetter());
 	}
 
 	/* This function will get the square
@@ -122,10 +139,54 @@ class Face{
  	*   Sets the color of a square on the face specified
  	*   by its location.
  	*/ 
-	setColor(loc, color){
-		/*
- 		*  This needs to be done still
-		*/
+	setSquare(loc, squ){
+		if(loc === "tr")
+		{
+			this.tr.letter = squ.letter;
+			this.tr.color = squ.color;
+		}
+		else if(loc === "tm")
+		{
+			this.tm.letter = squ.letter;
+			this.tm.color = squ.color;
+		}
+		else if(loc === "tl")
+		{
+			this.tl.letter = squ.letter;
+			this.tl.color = squ.color;
+		}
+		else if(loc === "mr")
+		{
+			this.mr.letter = squ.letter;
+			this.mr.color = squ.color;
+		}
+		else if(loc === "mm")
+		{
+			this.mm.letter = squ.letter;
+			this.mm.color = squ.color;
+		}
+		else if(loc === "ml")
+		{
+			this.ml.letter = squ.letter;
+			this.ml.color = squ.color;
+		}
+		else if(loc === "br")
+		{
+			this.br.letter = squ.letter;
+			this.br.color = squ.color;
+		}
+		else if(loc === "bm")
+		{
+			this.bm.letter = squ.letter;
+			this.bm.color = squ.color;
+		}
+		else if(loc === "bl")
+		{
+			this.bl.letter = squ.letter;
+			this.bl.color = squ.color;
+		}
+		else
+			return null;
 	}
 
 
@@ -189,10 +250,114 @@ module.exports = class Cube{
 	constructor(){
 		this.front  = new Face("red");
 		this.back   = new Face("orange");
-		this.right  = new Face("blue");		
-		this.left   = new Face("green");
-		this.bottom = new Face("yellow");
-		this.top    = new Face("white");
+		this.right  = new Face("green");		
+		this.left   = new Face("blue");
+		this.bottom = new Face("white");
+		this.top    = new Face("yellow");
+		var ss = new Square("yellow");
+		ss.setLetter("A");
+		this.top.setSquare("tl", ss);
+		this.top.setSquare("tm", ss);
+
+		ss.setLetter("B");
+		this.top.setSquare("tr", ss);
+		this.top.setSquare("mr", ss);
+
+		ss.setLetter("C");
+		this.top.setSquare("br", ss);
+		this.top.setSquare("bm", ss);
+
+		ss.setLetter("D");
+		this.top.setSquare("bl", ss);
+		this.top.setSquare("ml", ss);
+
+		ss = new Square("red");
+		ss.setLetter("E");
+		this.front.setSquare("tl", ss);
+		this.front.setSquare("tm", ss);
+
+		ss.setLetter("F");
+		this.front.setSquare("tr", ss);
+		this.front.setSquare("mr", ss);
+
+		ss.setLetter("G");
+		this.front.setSquare("br", ss);
+		this.front.setSquare("bm", ss);
+
+		ss.setLetter("H");
+		this.front.setSquare("bl", ss);
+		this.front.setSquare("ml", ss);
+
+		ss = new Square("blue");
+		ss.setLetter("I");
+		this.left.setSquare("tl", ss);
+		this.left.setSquare("tm", ss);
+        console.log(this.left.tm);
+
+		ss.setLetter("J");
+		this.left.setSquare("tr", ss);
+		this.left.setSquare("mr", ss);
+
+		ss.setLetter("K");
+		this.left.setSquare("br", ss);
+		this.left.setSquare("bm", ss);
+
+		ss.setLetter("L");
+		this.left.setSquare("bl", ss);
+		this.left.setSquare("ml", ss);
+
+		ss = new Square("green");
+		ss.setLetter("M");
+		this.right.setSquare("tl", ss);
+		this.right.setSquare("tm", ss);
+
+		ss.setLetter("N");
+		this.right.setSquare("tr", ss);
+		this.right.setSquare("mr", ss);
+
+		ss.setLetter("O");
+		this.right.setSquare("br", ss);
+		this.right.setSquare("bm", ss);
+
+		ss.setLetter("P");
+		this.right.setSquare("bl", ss);
+		this.right.setSquare("ml", ss);
+
+		ss = new Square("orange");
+		ss.setLetter("Q");
+		this.back.setSquare("tl", ss);
+		this.back.setSquare("tm", ss);
+
+		ss.setLetter("R");
+		this.back.setSquare("tr", ss);
+		this.back.setSquare("mr", ss);
+
+		ss.setLetter("S");
+		this.back.setSquare("br", ss);
+		this.back.setSquare("bm", ss);
+
+		ss.setLetter("T");
+		this.back.setSquare("bl", ss);
+		this.back.setSquare("ml", ss);
+
+		ss = new Square("white");
+		ss.setLetter("U");
+		this.bottom.setSquare("tl", ss);
+		this.bottom.setSquare("tm", ss);
+
+		ss.setLetter("V");
+		this.bottom.setSquare("tr", ss);
+		this.bottom.setSquare("mr", ss);
+
+		ss.setLetter("W");
+		this.bottom.setSquare("br", ss);
+		this.bottom.setSquare("bm", ss);
+
+		ss.setLetter("X");
+		this.bottom.setSquare("bl", ss);
+		this.bottom.setSquare("ml", ss);
+
+
 	}
 
 	// Returns the face object based on the position
