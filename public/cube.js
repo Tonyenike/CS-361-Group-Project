@@ -144,6 +144,7 @@ function setcolor(color, face, square){
 
 	if(face === "front"){
 		document.getElementById("modelcube").querySelector(yo).style.backgroundColor = sq.color;
+	    document.getElementById("modelcube").querySelector(yo).querySelector(".squarel").innerHTML = sq.letter;
 	}
 
 	return;

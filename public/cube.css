@@ -127,9 +127,9 @@ td{
 #cubedisplay {
 
 	position: absolute;
-	padding-bottom: 50%;
+	padding-bottom: 60vmin;
 	height: 0;
-	width: 60%;
+	width: 72vmin;
 	top: 3vmin;
 	left: 15vmin;
 	background-color: lightgrey;

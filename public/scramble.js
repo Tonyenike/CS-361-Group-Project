@@ -12,6 +12,9 @@ var socket = io.connect('http://localhost:54500');
 
  document.getElementById("reveal").addEventListener("click", showhide);
  document.getElementById("gen").addEventListener("click", regen);
+ document.getElementById("check-solution").addEventListener("click", function(){
+        alert("This button is depreciated. Reveal solution to check your solution");
+    });
 
 function regen(){
   window.location.reload();
