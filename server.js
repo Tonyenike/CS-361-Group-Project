@@ -76,7 +76,6 @@ io.on('connection', function (socket) {
     *  back to the client.
     */
     socket.on('rotateCube', function(content) {
-	console.log(content.direction);
         cube.rotateCube(content.direction);
         emitCube();
     })
