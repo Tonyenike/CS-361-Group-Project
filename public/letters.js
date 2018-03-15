@@ -2,7 +2,7 @@
  *   Establish connection to the server.
  */
 
-var socket = io.connect('http://localhost:50100');
+var socket = io.connect('http://localhost:54500');
 
 
 /*

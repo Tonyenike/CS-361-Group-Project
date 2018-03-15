@@ -27,7 +27,7 @@ var server = require('http').Server(app);
 var handlebars = require('express-handlebars');
 var cubeEngine = require('./engine.js'); // This lets us use the functions that we have built on the back end.
 
-var port = 50100; // When running the server, type "localhost:[port-number]" in your address bar to see the webpage.
+var port = 54500; // When running the server, type "localhost:[port-number]" in your address bar to see the webpage.
 
 var c = new cubeEngine();
 console.log(c.solution());
