@@ -60,7 +60,7 @@ setface(face, "left");
 alert("This button is depreciated");
 });
 
-document.getElementById("downer").addEventListener("mousedown", function(){console.log("Hi"); emitDir("down");});
+document.getElementById("downer").addEventListener("click", function(){console.log("Hi"); emitDir("down");});
 document.getElementById("up").addEventListener("click", function(){emitDir("up");});
 document.getElementById("left").addEventListener("click", function(){emitDir("left");});
 document.getElementById("right").addEventListener("click", function(){emitDir("right");});
