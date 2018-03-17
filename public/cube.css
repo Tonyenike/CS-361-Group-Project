@@ -62,9 +62,10 @@ h1 {
 	right: 3%;
 	top: 45%;
 }
-#down {
+#downer {
 	right: 45%;
 	top: 87%;
+	pointer-events: none;
 }
 #clock{
     top: 3%;

@@ -60,8 +60,8 @@ setface(face, "left");
 alert("This button is depreciated");
 });
 
+document.getElementById("downer").addEventListener("click", function(){console.log("Hi"); emitDir("down");});
 document.getElementById("up").addEventListener("click", function(){emitDir("up");});
-document.getElementById("down").addEventListener("click", function(){emitDir("down");});
 document.getElementById("left").addEventListener("click", function(){emitDir("left");});
 document.getElementById("right").addEventListener("click", function(){emitDir("right");});
 document.getElementById("clock").addEventListener("click", function(){emitDir("clockwise");});
@@ -73,13 +73,13 @@ function emitDir(dir){
     var content = {
         direction: dir
     };
+    console.log(content.direction);
     socket.emit("rotateCube", content);
 
 }
 
 socket.on("updateCube", function(content){
     var cube = content;
-    console.log(cube);
     setface(cube.front, "front");
     setface(cube.back, "back");
     setface(cube.left, "left");
